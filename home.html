@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body, html {
+   margin: 0;
+  padding: 0;
+  height: 3000px;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  background-color: white;
+}
+#container {
+  display: flex; /*The logos*/
+  margin-top: 100px;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ball.expanded {
+  width: 50px;
+  height: 50px;
+}
+
+.sidebar {
+  position: fixed;
+  left: -140px; /* Initially hide the sidebar */
+  top: 150px;
+  width: 150px;
+  height: 100%;
+  background-color: #333;
+  color: #fff;
+  transition: left 0.5s ease; /* Add smooth transition */
+  padding: 20px;
+}
+
+.content {
+  margin-left: 250px; /* Adjust margin to accommodate the sidebar */
+  padding: 20px;
+}
+
+#toggleButton {
+  position: fixed;
+  top: 200px;
+  left: 20px;
+  color: white;
+  background-color: rgb(0, 146, 22);
+  border-radius: 100%;
+  border: none;
+
+}
+.sidebar.open {
+  left: 0; /* Open the sidebar */
+}
+.toggle{
+    height: 50px;
+    width: 50px;
+}
+  .logo-container {
+    height: 200px; /* Adjust according to your design */
+  }
+  
+  .logo {
+    position: absolute;
+    width: 100px; /* Adjust according to your design */
+    height: 100px; /* Maintain aspect ratio */
+    animation: rotateLogo 5s linear infinite; /* Rotate the logo continuously */
+  }
+  .logo1{
+    position: absolute;
+    width: 100px; /* Adjust according to your design */
+    height: 100px; /* Maintain aspect ratio */
+  }
+    .banner{
+      position: relative;
+      background-color: green;
+      height: 100px;
+      width: 100%;
+    }
+    .tban{
+      width: 100%; /* Set the width of the banner */
+      height: 100px; 
+      display: flex;
+      justify-content: center;
+      align-items: center;    
+      font-family: Georgia;
+      color: rgb(255, 255, 61); 
+    }
+    .but1{
+      display: flex;
+      height: 100x;
+      width: 120px;
+      margin-top: 50px;
+      padding: 10px;
+      background-color: white;
+      cursor: pointer;
+    }
+
+    .but2{
+      display: flex;
+      height: 100x;
+      width: 120px;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: white;
+      cursor: pointer;
+    }
+    .but3{
+      display: flex;
+      height: 100x;
+      width: 120px;
+      margin-top: 10px;
+      padding: 10px;
+      background-color: white;
+      cursor: pointer;
+    }
+    #container {
+  display: flex;
+  margin-top: 100px;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ball.expanded {
+  width: 50px;
+  height: 50px;
+}
+  @keyframes rotateLogo {
+    from {
+      transform: rotate(0deg); /* Initial rotation */
+    }
+    to {
+      transform: rotate(360deg); /* Final rotation */
+    }
+  }
+
+  #section1{
+    margin-top: 250px;
+  }
+  #section2{
+    margin-top: 250px;
+  }
+  #section3{
+    margin-top: 250px;
+  }
+  #section4{
+    margin-top: 250px;
+  }
+  #section5{
+    margin-top: 250px;
+  }
+
+
+
+  </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="logo-container">
+        <img src="https://drive.google.com/thumbnail?id=1IvMMm93DUBaSb51MLjYVaYzUZur2QU_X" alt="Logo" class="logo">
+        <img src="logo1.png" alt="Logo" class="logo1"><h1 class="tban">Pampanga State Agricultural University</h1>
+      </div>
+      <div class="sidebar" id="sidebar">
+        <nav id="container">
+          <img src="PSAU_logo.png" class="ball"><a href="#ball1"></a>
+          <img src="PSAU_logo.png" class="ball"><a href="#ball2"></a>
+          <img src="PSAU_logo.png" class="ball"><a href="#ball3"></a>
+          <img src="PSAU_logo.png" class="ball"><a href="#ball4"></a>
+          <img src="PSAU_logo.png" class="ball"><a href="#ball5"></a>
+        </nav>
+        <button class="but1" id="but1">Content 1</button><br>
+        <button class="but2" id="but2">Content 2</button><br>
+        <button class="but3" id="but3">Content 3</button><br>
+        <button class="but3" id="but3">Content 4</button><br>
+        <button class="but3" id="but3">Content 5</button><br>
+        <button class="but3" id="but3">Content 6</button>
+
+      </div>
+      
+      
+      <div>
+        <section id="ball1">
+          
+      </section>
+    </div>
+    <div>
+      <section id="section2">
+        
+      </section>
+    </div>
+    <div>
+    <section id="section3">
+      
+    </section>
+    </div>
+    <div>
+      <section id="section4">
+        
+      </section>
+    </div>
+    <div>
+    <section id="section5">
+      
+    </section>
+    </div>
+    
+      <div class="content">
+        <button id="toggleButton">></button>
+      </div>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+  // Simulate logo animation
+  setTimeout(function() {
+    document.querySelector('.opening-animation').classList.add('hidden');
+    document.querySelector('.content').style.display = 'block';
+  }, 3000); // Change 3000 to adjust the duration of the opening animation
+});
+
+        const balls = document.querySelectorAll('.ball');
+
+balls.forEach((ball, index) => {
+  ball.addEventListener('click', () => {
+    expandBall(index);
+    moveBalls(index);
+  });
+});
+
+function expandBall(clickedIndex) {
+  balls.forEach((ball, index) => {
+    if (index === clickedIndex) {
+      ball.classList.add('expanded');
+    } else {
+      ball.classList.remove('expanded');
+    }
+  });
+}
+
+function moveBalls(clickedIndex) {
+  balls.forEach((ball, index) => {
+    if (index < clickedIndex) {
+      ball.style.marginRight = '0px';
+    } else if (index > clickedIndex) {
+      ball.style.marginLeft = '0px';
+    } else {
+      ball.style.marginRight = '';
+      ball.style.marginLeft = '';
+    }
+  });
+}
+        document.getElementById('toggleButton').addEventListener('click', function() 
+        {
+          document.getElementById('sidebar').classList.toggle('open');
+        });
+        
+        // Function to open the sidebar
+        function openSidebar() {
+          document.getElementById('sidebar').classList.add('open');
+        }
+        
+        // Function to close the sidebar
+        function closeSidebar() {
+          document.getElementById('sidebar').classList.remove('open');
+        }
+
+        document.getElementById('but1').addEventListener('click', function() {
+        let body = document.body;
+        let button = document.getElementById('but1');
+    
+        if (body.style.backgroundColor === 'white') {
+        body.style.backgroundColor = 'gray';
+        button.style.backgroundColor = 'gray';
+        button.style.color = 'white';
+        } 
+        else {
+        body.style.backgroundColor = 'white';
+        button.style.backgroundColor = 'white';
+        button.style.color = 'gray';
+    }
+  });
+        document.getElementById('but2').addEventListener('click', function() {
+        let body = document.body;
+        let button = document.getElementById('but2');
+    
+        if (body.style.backgroundColor === 'white') {
+        body.style.backgroundColor = 'black';
+        button.style.backgroundColor = 'black';
+        button.style.color = 'white';
+        } 
+        else {
+        body.style.backgroundColor = 'white';
+        button.style.backgroundColor = 'white';
+        button.style.color = 'black';
+    }
+  });
+        document.getElementById('but3').addEventListener('click', function() {
+        let body = document.body;
+        let button = document.getElementById('but3');
+    
+        if (body.style.backgroundColor === 'white') {
+        body.style.backgroundColor = 'grey';
+        button.style.backgroundColor = 'grey';
+        button.style.color = 'white';
+        } 
+        else {
+        body.style.backgroundColor = 'white';
+        button.style.backgroundColor = 'white';
+        button.style.color = 'black';
+    }
+  });
+          </script>
+      
+
+    </div>
+  
+</body>
+</html>
