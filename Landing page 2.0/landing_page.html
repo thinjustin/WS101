@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #deedf8;
+            height: 10000px;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav {
+            margin: 100px 20px;
+            height: 490px;
+            width: 280px;
+            border-radius: 32px;
+            background: #eef7ff;
+            box-shadow: 6px 6px 23px #bcc3c9, -6px -6px 23px #ffffff;
+            float: left;
+            text-align: center;
+            color: #555;
+            font-family: 'Roboto';
+            font-weight: 300;
+            font-size: 20px;
+            overflow: hidden;
+            -webkit-backface-visibility: hidden;
+            -webkit-perspective: 100;
+            -webkit-transform: translate3d(0,0,0);
+        }
+
+        .button {
+            width: 50%;
+            margin-bottom: 18px;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 3px solid #eef7ff;
+            border-radius: 10px;
+            background-color: #eef7ff;
+            color: #010101;
+            box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.9),
+                       5px 5px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .button:hover {
+            color: #03a500;
+            box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.6),
+                       1px 1px 10px rgba(0, 0, 0, 0.3),
+                       inset -2px -2px 5px rgba(255, 255, 255, 0),
+                       inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #btn1 {
+            margin-top: 40px;
+        }
+
+        .content {
+            display: none; /* Initially hide all content sections */
+            height: 550px;
+            width: 66%;
+            margin: 5%;
+            top: 50%;
+            border-radius: 30px;
+            float: left;
+            background-color: #eef7ff;
+            border: 7px solid #eef7ff;
+            color: #010101;
+            box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.9),
+                       5px 5px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .content:hover {
+            box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.6),
+                       1px 1px 10px rgba(0, 0, 0, 0.3),
+                       inset -2px -2px 5px rgba(255, 255, 255, 0),
+                       inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+   
+    <nav class="nav">
+        <div>
+            <input class="button" id="btnHome" type="button" value="Home">
+            <input class="button" id="btnAbout" type="button" value="About">
+            <input class="button" id="btnAchievement" type="button" value="Achievement">
+            <input class="button" id="btnProjects" type="button" value="Ongoing projects">
+            <input class="button" id="btnOfficers" type="button" value="Officers">
+            <input class="button" id="btnContacts" type="button" value="Contacts">
+            <input class="button" id="btnServices" type="button" value="Services">
+        </div>
+    </nav>
+
+    <main id="contentHome" class="content" style="display: block;"> <!-- Initially show the home content -->
+        Hi, welcome to our website!
+    </main>
+    <main id="contentAbout" class="content">
+        About us: We are a team dedicated to providing excellent services.
+    </main>
+    <main id="contentAchievement" class="content">
+        Our Achievements: We have accomplished many great things.
+    </main>
+    <main id="contentProjects" class="content">
+        Ongoing projects: Check out our latest projects.
+    </main>
+    <main id="contentOfficers" class="content">
+        Meet our team of officers.
+    </main>
+    <main id="contentContacts" class="content">
+        Contact us: Reach out to us for any queries.
+    </main>
+    <main id="contentServices" class="content">
+        Our Services: We offer a wide range of services to meet your needs.
+    </main>
+
+    <script>
+        const buttons = document.querySelectorAll('.button');
+        const contents = document.querySelectorAll('.content');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                contents.forEach(content => {
+                    content.style.display = 'none'; // Hide all content sections
+                });
+
+                const contentId = button.id.replace('btn', 'content');
+                document.getElementById(contentId).style.display = 'block'; // Show the clicked content
+            });
+        });
+    </script>
+</body>
+</html>
