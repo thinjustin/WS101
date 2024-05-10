@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #deedf8;
+            height: 10000px;
+        }
+        .nav {
+    margin: 100px 20px;
+    height: 490px;
+    width: 280px;
+    -webkit-border-radius: 32px;
+    border-radius: 32px;
+    background: #eef7ff;
+    -webkit-box-shadow: 6px 6px 23px #bcc3c9, -6px -6px 23px #ffffff;
+    box-shadow: 6px 6px 23px #bcc3c9, -6px -6px 23px #ffffff;
+    float: left;
+    text-align: center;
+    color: #555;
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 20px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 100;
+    -webkit-transform: translate3d(0,0,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+        .button {
+            width: 50%;
+            margin: 10px;
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 3px solid #eef7ff;
+            border-radius: 10px;
+            background-color: #eef7ff;
+            color: #010101;
+            box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.9),
+                       5px 5px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .button:hover {
+            color: #03a500;
+            box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.6),
+                       1px 1px 10px rgba(0, 0, 0, 0.3),
+                       inset -2px -2px 5px rgba(255, 255, 255, 0),
+                       inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        #btn1 {
+            margin-top: 40px;
+        }
+
+        .content {
+            display: none; /* Initially hide all content sections */
+            height: 550px;
+            width: 66%;
+            margin: 5%;
+            top: 50%;
+            border-radius: 30px;
+            float: left;
+            background-color: #eef7ff;
+            border: 7px solid #eef7ff;
+            color: #010101;
+            box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.9),
+                       5px 5px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .content:hover {
+            box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.6),
+                       1px 1px 10px rgba(0, 0, 0, 0.3),
+                       inset -2px -2px 5px rgba(255, 255, 255, 0),
+                       inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+
+        /* Contacts */
+
+        #MainContainer{
+            background-color:rgba(197, 228, 255, 0.67);
+            overflow-y: auto;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+        }
+
+        #ContactDetails{
+            position: relative;
+            top: 0;
+            left: 0;
+            /* display: inline-block; */
+            padding: 15px;
+            /* background-color: red; */
+            width: 45%;
+            height: 95%;
+            border-radius: 30px 0px 0px 30px;
+            text-align: center;
+            z-index: 9;
+        }
+
+        #Contactdeets img{
+            width: 80px;
+        }
+
+        #Contactdeets{
+            position: relative;
+            border: 1px solid #9A9A9A;
+            overflow: hidden;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px;
+            z-index: 9;
+        }
+
+        .imageHover{
+            width: 100%;
+            height: 90%;
+            top:0;
+            left:-110%;
+            position: absolute;
+            background-color: rgba(240, 248, 255, 0.549);
+            color: #000000;
+            backdrop-filter: blur(1px);
+            /* border-radius: 20px; */
+            padding: 10px;
+            transition: 1.5s;
+        }
+
+        #Contactdeets:hover {
+            /* transition: 1s; */
+            transform: scale(1.1);
+            position: relative;
+            /* background-color: whitesmoke; */
+            border: 1px solid #9A9A9A;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px;
+            z-index: 9;
+        }
+
+        #Contactdeets:hover .imageHover{
+            left: 0;
+        }
+
+        .links {
+            font-size: 10px;
+            background-color: rgb(197,228,255) ;
+            border: 1px solid #9A9A9A;
+            padding: 5px 10px 5px 10px;
+            border-radius: 5px;
+        }
+
+        .icon{
+            height: 20px;
+            /* width: 20px; */
+            
+        }
+
+        #ContactForm{
+            position: absolute;
+            text-align: center;
+            justify-content: center;
+            top: 0px;
+            right: -109%;
+            background-color: rgba(120, 192, 255, 0.353);
+            width: 105%;
+            height: 95%;
+            /* border-radius: 0px 30px 30px 0px; */
+            z-index: 99;
+            padding: 10px
+        }
+        
+        a{
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .input {
+            border: 1px solid #9A9A9A;
+            border-radius: 10px;
+            width: 80%;
+            height: 30px;
+            padding: 5px 10px 5px 10px;
+            margin: 8px;
+        }
+        #message{
+            border: 1px solid #9A9A9A;
+            border-radius: 10px;
+            width: 80%;
+            height: 100px;
+            padding: 5px 10px 5px 10px;
+            margin: 8px;
+        }
+
+        .submit {
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: rgb(71, 166, 250);
+            color: white;
+            width: 80%;
+        }
+
+        .submit:hover{
+            box-shadow: -1px -1px 10px rgba(255, 255, 255, 0.6),
+                       1px 1px 10px rgba(0, 0, 0, 0.577);
+            background-color: blue;
+        }
+
+        /* SERVICES */
+
+        
+
+    </style>
+</head>
+<body>
+   
+    <nav class="nav">
+        <div>
+            <input class="button" id="btnHome" type="button" value="Home">
+            <input class="button" id="btnAbout" type="button" value="About">
+            <input class="button" id="btnAchievement" type="button" value="Achievement">
+            <input class="button" id="btnProjects" type="button" value="Ongoing projects">
+            <input class="button" id="btnOfficers" type="button" value="Officers">
+            <input class="button" id="btnContacts" type="button" value="Contacts">
+            <input class="button" id="btnServices" type="button" value="Services">
+        </div>
+    </nav>
+
+    <main id="contentHome" class="content" > <!-- Initially show the home content -->
+        Hi, welcome to our website!
+    </main>
+    <main id="contentAbout" class="content">
+        About us: We are a team dedicated to providing excellent services.
+    </main>
+    <main id="contentAchievement" class="content">
+        Our Achievements: We have accomplished many great things.
+    </main>
+    <main id="contentProjects" class="content">
+        Ongoing projects: Check out our latest projects.
+    </main>
+    <main id="contentOfficers" class="content">
+        Meet our team of officers.
+    </main>
+
+    <!--CONTACTS-->
+    <main id="contentContacts" class="content">
+
+    <div id="MainContainer">  
+
+        <div id="ContactDetails">
+            <h2> Contact Us </h2>
+            <hr style="width: 80%;">
+            <div id="Contactdeets">
+                <img src="https://drive.google.com/thumbnail?id=1_jY6EKw7zq3TL3Ai3JJpRVl9yzZ1CjaR" class="logo">
+                <div class="imageHover">
+                <h3 class="title"> PSAU Computer Society</h3>
+                <button class="links" > <a href="https://www.facebook.com/PSAUComSoc">Facebook</a> </button>
+                <button class="links"><a href="mailto:computersociety2022@gmail.com">Email</a> </button>
+                </div>
+            </div>
+            
+            <div id="Contactdeets">
+                <img src="https://drive.google.com/thumbnail?id=1IvMMm93DUBaSb51MLjYVaYzUZur2QU_X" class="logo">
+                <div class="imageHover">
+                    <h4 class="title"> Pampanga State Agricultural University</h4>
+                    <button class="links" > <a href="https://www.facebook.com/PampangaStateAgriU">Facebook</a> </button>
+                    <button class="links" > <a href="https://shorturl.at/kwDLU">Instagram</a> </button>
+                    <button class="links" > <a href="www.linkedin.com/school/pampangastateagriculturaluniversity">LinkedIn</a> </button>
+                    <button class="links" > <a href="https://shorturl.at/bjK48">Website</a> </button>
+                    <button class="links"><a href="mailto:officeofthepresident@psau.edu.ph">Email</a> </button>
+                    </div>
+            </div>            
+            <div id="Contactdeets">
+                <img src="https://drive.google.com/thumbnail?id=1ZaTLOZlH5ea27dfUdlgxbin3AIJ_4QW3" class="logo">
+                <div class="imageHover">
+                    <h4 class="title"> Department of Computer Studies and Automation</h4>
+            </div>
+
+        </div>
+
+        <div id="ContactForm">
+            <h1> Get in Touch!</h1>
+            <input type="text" class="input" value="Full Name" required><br>
+            <input type="text" class="input" value="Email Address" required><br>
+            <input type="text" class="input" value="Telephone Number (Optional)"><br>
+            <textarea id="message">Your message and suggestions here...</textarea><br>
+            <input type="button" value="Submit" class="submit" onclick="alert('Message Submitted')">
+                
+            </div>
+        </div>
+
+    </div>  
+    
+    </main>
+
+
+    <main id="contentServices" class="content" style="display: block;">
+        <div class="MainContainer">
+            hi
+        </div>
+    </main>
+
+    <script>
+        const buttons = document.querySelectorAll('.button');
+        const contents = document.querySelectorAll('.content');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                contents.forEach(content => {
+                    content.style.display = 'none'; // Hide all content sections
+                });
+
+                const contentId = button.id.replace('btn', 'content');
+                document.getElementById(contentId).style.display = 'block'; // Show the clicked content
+            });
+        });
+    </script>
+</body>
+</html>
